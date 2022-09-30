@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  city: MyString
+  room: one
+
+two:
+  date: MyString
+  city: MyString
+  room: two
