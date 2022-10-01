@@ -10,6 +10,11 @@ module Api
         render json: @rooms
       end
 
+      # GET /rooms/(id)
+      def show
+        render json: @room
+      end
+
       # POST /rooms
       def create
         @room = Room.new(room_params)
