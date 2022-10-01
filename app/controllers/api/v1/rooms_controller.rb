@@ -3,6 +3,18 @@ module Api
     class RoomsController < ApplicationController
       before_action :set_room, only: %i[show update destroy]
 
+      # GET /rooms
+      def index
+        @rooms = Room.all
+
+        render json: @rooms
+      end
+
+      # GET /rooms/(id)
+      def show
+        render json: @room
+      end
+
       # POST /rooms
       def create
         @room = Room.new(room_params)
