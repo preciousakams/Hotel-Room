@@ -8,7 +8,7 @@ module Api
         @room = Room.new(room_params)
 
         if @room.save
-          render json: @room, status: :created, location: "api/v1/#{@room}"
+          render json: @room, status: :created, location: api_v1_room_path(@room)
         else
           render json: @room.errors, status: :unprocessable_entity
         end
