@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Rooms Page', type: :request do
   describe 'GET /Rooms' do
     before :each do
-      room = Room.create(name: 'Deluxe, Guest room', description: 'Deluxe, Guest room, 1 King. Sleep soundly in Bodrum on the indulgent bedding and crisp linens in all of our resort hotel rooms', size: '45', view: 'Sea', bedding: 'Twin', image: 'https://cache.marriott.com/content/dam/marriott-renditions/BJVEB/bjveb-deluxe-0003-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px')
+      Room.create(name: 'Deluxe, Guest room', description: 'Deluxe, Guest room, 1 King. Sleep soundly in Bodrum on the indulgent bedding and crisp linens in all of our resort hotel rooms', size: '45', view: 'Sea', bedding: 'Twin', image: 'https://cache.marriott.com/content/dam/marriott-renditions/BJVEB/bjveb-deluxe-0003-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px')
     end
     it 'returns all rooms' do
       get '/api/v1/rooms'
@@ -31,12 +31,9 @@ RSpec.describe 'Rooms Page', type: :request do
       expect(response).to have_http_status(:ok)
     end
 
-    # it have existing room in a json format in the database
     it 'returns a room in a json format' do
       get "/api/v1/rooms/#{@room.id}"
       expect(response.content_type).to eq('application/json; charset=utf-8')
-
-      # expect the response to be a hash with the keys 'id', 'name', 'description', 'size', 'view', 'bedding', 'image', 'created_at', and 'updated_at'.
       expect(JSON.parse(response.body)).to be_an_instance_of(Hash)
       expect(JSON.parse(response.body).keys).to eq(%w[id name description size view bedding image created_at updated_at])
       expect(JSON.parse(response.body).values).to be_an_instance_of(Array)
