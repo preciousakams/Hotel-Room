@@ -1,32 +1,28 @@
 module API
   module V1
     class ReservationsController < ApplicationController
-      before_action :set_reservation, only: %i[show update destroy]
-        # GET /reservations
-        def index
-          @reservations = user_id.reservations
-          if @reservations
-            render_success({ message: 'Loaded all reservations', data: { reservations: @reservations } })
-          else
-            render_error('Ooops! Something went wrong')
-          end
-        end
-
-        # POST /reservations
       def create
-        @new_reservation = user_id.reservations.new(room_id: params[:room_id], date: params[:date],
-                                                         user_id: params[:user_id])
-        user_id(@new_reservation, 'Reservation created')
+        @reservation = Reservation.new(reservation_params)
+        if @reservation.save
+          render json: { success: 'The reservation has been created successfully!' }
+        else
+          render json: { error: 'Please try again!' }
+        end
       end
 
-        # DELETE /reservations/1
-      def destroy
-        @reservation = Reservation.find(params[:id])
-        user_id(@reservation, 'Reservation deleted')
+      def index
+        @reservations = User.find(params[:user_id]).reservations
+        @result = []
+        @reservations.each do |res|
+          @result << { reservation: res, room: Room.find(res.room_id) }
+        end
+        render json: { reservation: @result }
       end
 
-      def reservations_params
-        params.require(:reservation).permit(:date, :user_id, :room_id)
+      private
+
+      def reservation_params
+        params.permit(:user_id, :room_id, :city, :date)
       end
     end
   end
