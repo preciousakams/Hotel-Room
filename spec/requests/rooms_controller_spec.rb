@@ -6,6 +6,19 @@ RSpec.describe 'Rooms Page', type: :request do
       get '/api/v1/rooms'
       expect(response).to have_http_status(:ok)
     end
+
+    # it have existing rooms in a json format in the database
+    it 'returns all rooms in a json format' do
+      room = Room.create(name: 'Deluxe, Guest room', description: 'Deluxe, Guest room, 1 King. Sleep soundly in Bodrum on the indulgent bedding and crisp linens in all of our resort hotel rooms', size: '45', view: 'Sea', bedding: 'Twin', image: 'https://cache.marriott.com/content/dam/marriott-renditions/BJVEB/bjveb-deluxe-0003-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px')
+      get '/api/v1/rooms'
+      expect(response.content_type).to eq('application/json; charset=utf-8')
+
+      # expect the response to be an array of hashes with the keys 'id', 'name', 'description', 'size', 'view', 'bedding', 'image', 'created_at', and 'updated_at'.
+      expect(JSON.parse(response.body)).to be_an_instance_of(Array)
+      expect(JSON.parse(response.body).first).to be_an_instance_of(Hash)
+      expect(JSON.parse(response.body).first.keys).to eq(%w[id name description size view bedding image created_at updated_at])
+      expect(JSON.parse(response.body).first.values).to be_an_instance_of(Array)
+    end
   end
   describe 'POST /Room' do
     it 'create new room' do
