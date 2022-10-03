@@ -9,13 +9,9 @@ RSpec.describe 'Rooms Page', type: :request do
       get '/api/v1/rooms'
       expect(response).to have_http_status(:ok)
     end
-
-    # it have existing rooms in a json format in the database
     it 'returns all rooms in a json format' do
       get '/api/v1/rooms'
       expect(response.content_type).to eq('application/json; charset=utf-8')
-
-      # expect the response to be an array of hashes with the keys 'id', 'name', 'description', 'size', 'view', 'bedding', 'image', 'created_at', and 'updated_at'.
       expect(JSON.parse(response.body)).to be_an_instance_of(Array)
       expect(JSON.parse(response.body).first).to be_an_instance_of(Hash)
       expect(JSON.parse(response.body).first.keys).to eq(%w[id name description size view bedding image created_at updated_at])
@@ -30,7 +26,6 @@ RSpec.describe 'Rooms Page', type: :request do
       get "/api/v1/rooms/#{@room.id}"
       expect(response).to have_http_status(:ok)
     end
-
     it 'returns a room in a json format' do
       get "/api/v1/rooms/#{@room.id}"
       expect(response.content_type).to eq('application/json; charset=utf-8')
@@ -39,7 +34,6 @@ RSpec.describe 'Rooms Page', type: :request do
       expect(JSON.parse(response.body).values).to be_an_instance_of(Array)
     end
   end
-
   describe 'POST /Room' do
     it 'create new room' do
       post '/api/v1/rooms', params: { room: { name: 'Deluxe, Guest room', description: 'Deluxe, Guest room, 1 King. Sleep soundly in Bodrum on the indulgent bedding and crisp linens in all of our resort hotel rooms', size: '45', view: 'Sea', bedding: 'Twin', image: 'a' } }
