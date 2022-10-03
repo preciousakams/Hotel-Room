@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Rooms Page', type: :request do
+  describe 'GET /Rooms' do
+    it 'returns all rooms' do
+      get '/api/v1/rooms'
+      expect(response).to have_http_status(:ok)
+    end
+  end
   describe 'POST /Room' do
     it 'create new room' do
       post '/api/v1/rooms', params: { room: { name: 'Deluxe, Guest room', description: 'Deluxe, Guest room, 1 King. Sleep soundly in Bodrum on the indulgent bedding and crisp linens in all of our resort hotel rooms', size: '45', view: 'Sea', bedding: 'Twin', image: 'a' } }
