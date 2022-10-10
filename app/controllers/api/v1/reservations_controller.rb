@@ -4,15 +4,6 @@ class Api::V1::ReservationsController < ApplicationController
     render json: { reservation: @reservations }
   end
 
-  def show
-    @reserved_room = Reservation.where(id: params[:id])
-    if @reserved_room
-      render json: { reservation: @reserved_room }
-    else
-      render json: { error: 'Unable to find your reservation' }, status: :unprocessable_entity
-    end
-  end
-
   def create
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
