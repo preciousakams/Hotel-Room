@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :rooms
-      resources :users
-      resources :reservations
+      resources :users do
+        resources :reservations
+      end
     end
   end
   root 'api/v1/rooms#index'
