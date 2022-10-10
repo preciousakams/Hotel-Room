@@ -1,18 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Reservation, type: :model do
-  describe 'Reservation model' do
-    user = User.create!(name: 'Test Person')
-    room = Room.create!(
-      name: 'Deluxe, Guest Room',
-      description: 'Deluxe, Guest room, 1 King. Sleep soundly in Bodrum on the indulgent bedding and crisp linens in all of our resort hotel rooms',
-      size: '45',
-      view: 'Sea',
-      bedding: 'twin',
-      image: 'a'
-    )
-    subject { Reservation.new(user_id: user.id, room_id: room.id, city: 'Turkey', date: '03-10-2022') }
-    before { subject.save! }
+  before :all do
+    @user = User.create(email: 'test@test.com', name: 'Test', username: 'test')
+    @room = Room.create(name: 'Deluxe, Guest room', description: 'Deluxe, Guest room, 1 King. Sleep soundly in Bodrum on the indulgent bedding and crisp linens in all of our resort hotel rooms', size: '45', view: 'Sea', bedding: 'Twin', image: 'https://cache.marriott.com/content/dam/marriott-renditions/BJVEB/bjveb-deluxe-0003-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px')
+    @reservation = Reservation.new(user_id: @user.id, room_id: @room.id, date: '2022-10-11', city: 'test')
+  end
 
     context 'valid' do
       it 'city to be valid' do
