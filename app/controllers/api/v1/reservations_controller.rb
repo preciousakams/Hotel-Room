@@ -1,6 +1,6 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.all
+    @reservations = User.find(params[:user_id]).reservations
     render json: { reservation: @reservations }
   end
 
@@ -33,6 +33,6 @@ class Api::V1::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:room_id, :name, :start_date, :end_date, :city)
+    params.require(:reservation).permit(:room_id, :user_id, :start_date, :end_date, :city)
   end
 end
