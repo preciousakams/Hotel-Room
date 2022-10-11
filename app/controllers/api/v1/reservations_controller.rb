@@ -1,29 +1,29 @@
-module API
-  module V1
-    class ReservationsController < ApplicationController
-      def create
-        @reservation = Reservation.new(reservation_params)
-        if @reservation.save
-          render json: { success: 'The reservation has been created successfully!' }
-        else
-          render json: { error: 'Please try again!' }
-        end
-      end
+class Api::V1::ReservationsController < ApplicationController
+  def index
+    @reservations = User.find(params[:user_id]).reservations
+    render json: { reservation: @reservations }
+  end
 
-      def index
-        @reservations = User.find(params[:user_id]).reservations
-        @result = []
-        @reservations.each do |res|
-          @result << { reservation: res, room: Room.find(res.room_id) }
-        end
-        render json: { reservation: @result }
-      end
-
-      private
-
-      def reservation_params
-        params.permit(:user_id, :room_id, :city, :date)
-      end
+  def create
+    @reservation = Reservation.new(reservation_params)
+    if @reservation.save
+      render json: { message: 'reservation created' }, status: :created
+    else
+      render json: { error: 'Unable to create reservation' }, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    if Reservation.find(params[:id]).destroy
+      render json: { message: 'reservation deleted' }
+    else
+      render json: { error: 'Unable to delete reservation' }, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def reservation_params
+    params.require(:reservation).permit(:room_id, :user_id, :date, :city)
   end
 end
