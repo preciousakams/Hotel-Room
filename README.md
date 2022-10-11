@@ -71,7 +71,7 @@ $ rspec ./spec/#{filename}_spec.rb
 
 ### API Documentation
 
-Ypu can find the API documentation by:
+You can find the API documentation by:
 
 ```
 $ rails server
