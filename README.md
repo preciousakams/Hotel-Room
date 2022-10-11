@@ -107,13 +107,13 @@ $ gem install rails
 
 - GitHub: [@ahzamir](https://github.com/ahzamir).
 - Twitter: [@YousufiZamir](https://twitter.com/YousufiZamir)
-- LinkedIn: [ahmad-zamir-yousufi](https://www.linkedin.com/in/ahzamir/)
+- LinkedIn: [ahzamir](https://www.linkedin.com/in/ahzamir/)
 
 👤 **Huseyin Biyik** <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="20"/>
 
 - GitHub: [@huseyinbiyik](https://github.com/huseyinbiyik).
 - Twitter: [@huseyin__biyik](https://twitter.com/huseyin__biyik)
-- LinkedIn: [ahmad-zamir-yousufi](https://www.linkedin.com/in/ahzamir/)
+- LinkedIn: [Husein_biyik](http://www.linkedin.com/in/tahahuseyinbiyik/)
 
 👤 **Precious Akams** <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="20"/>
 
