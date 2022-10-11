@@ -30,4 +30,4 @@
 # IDE folders
 /.idea
 # Ignore personal choice of port usage
-config/database.yml
+/config/database.yml
