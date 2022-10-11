@@ -7,7 +7,7 @@ module Api
       def index
         @rooms = Room.all
 
-        render json: @rooms
+        render json: @rooms, status: :ok
       end
 
       # GET /rooms/(id)
