@@ -15,6 +15,10 @@ RSpec.describe User, type: :model do
         assc = described_class.reflect_on_association(:reservations)
         expect(assc.macro).to eq :has_many
       end
+      it 'has many rooms' do
+        assc = described_class.reflect_on_association(:rooms)
+        expect(assc.macro).to eq :has_many
+      end
     end
   end
 end
