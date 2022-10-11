@@ -1,0 +1,171 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/users/{id}/reservations":
+    get:
+      summary: Get all reservations
+      tags:
+      - Reservations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: reservations found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Post"
+    post:
+      summary: Create a reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '201':
+          description: reservation created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                room_id:
+                  type: integer
+                date:
+                  type: string
+                city:
+                  type: string
+              required:
+              - user_id
+              - room_id
+  "/api/v1/users/{id}/reservations/{id}":
+    get:
+      summary: Get reservation by id
+      tags:
+      - Reservations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: post found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Post"
+  "/api/v1/rooms":
+    get:
+      summary: Get all rooms
+      tags:
+      - Rooms
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Room"
+    post:
+      summary: Create a room
+      tags:
+      - Rooms
+      parameters: []
+      responses:
+        '201':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                size:
+                  type: integer
+                view:
+                  type: string
+                bedding:
+                  type: string
+                image:
+                  type: string
+              required:
+              - name
+              - description
+              - size
+              - view
+              - bedding
+              - image
+  "/api/v1/rooms/{id}":
+    get:
+      summary: Get room by id
+      tags:
+      - Rooms
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Room"
+    delete:
+      summary: Delete room by id
+      tags:
+      - Rooms
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: room deleted
+  "/api/v1/users":
+    post:
+      summary: Create a user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: user created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+              required:
+              - name
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
