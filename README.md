@@ -4,7 +4,10 @@
 
 > Hotel Room is a project that simulates a hotel room booking system. It allows users to book a room for one night. It also allows users to see the list of all booked rooms on that day and see a list of rooms that are not booked yet. You can check the source code for frontend [here](https://github.com/felixodette/hotel-room-frontend).
 
-![](https://file%2B.vscode-resource.vscode-cdn.net/Users/huseyinbiyik/Documents/Screen%20Shot%202022-10-12%20at%203.25.17%20PM.png?version%3D1665577867534)
+
+
+![Screen Shot 2022-10-12 at 3 25 17 PM](https://user-images.githubusercontent.com/25887253/195348197-e5130420-081e-409f-ae56-7b48d72e00c4.png)
+
 
 ## Built With
 
