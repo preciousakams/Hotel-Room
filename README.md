@@ -113,7 +113,7 @@ $ gem install rails
 
 - GitHub: [@huseyinbiyik](https://github.com/huseyinbiyik).
 - Twitter: [@huseyin__biyik](https://twitter.com/huseyin__biyik)
-- LinkedIn: [Husein_biyik](http://www.linkedin.com/in/tahahuseyinbiyik/)
+- LinkedIn: [Huseyin_biyik](http://www.linkedin.com/in/tahahuseyinbiyik/)
 
 👤 **Precious Akams** <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="20"/>
 
