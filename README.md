@@ -41,20 +41,41 @@ $ git clone https://github.com/kamzzy/Hotel-Room.git
 
 ### Usage
 
+Go to the app directory
 ```
-$ cd blog-app
+$ cd Hotel-Room
 ```
+
+Run the server
 ```
 $ rails server
 ```
 
+You can check the linter issues and fix them
+```
+$ rubocop -A
+```
+
 ### Setup
 
+Install Gems
 ```
 $ bundle install
 ```
+
+Create the database
 ```
-$ rubocop .
+$ rails db:create
+```
+
+Migrate database schema
+```
+$ rails db:migrate
+```
+
+Seed the database
+```
+$ rails db:seed
 ```
 
 ### Run tests
