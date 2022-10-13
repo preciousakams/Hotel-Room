@@ -8,6 +8,12 @@
 
 ![Screen Shot 2022-10-12 at 3 25 17 PM](https://user-images.githubusercontent.com/25887253/195348197-e5130420-081e-409f-ae56-7b48d72e00c4.png)
 
+## Backend Schema
+![hotel_schema](https://user-images.githubusercontent.com/25887253/195716717-f4418b7c-9b82-4899-909a-11223c66b065.png)
+
+## Live Demo
+- [Front End](https://hotel-room-frontend.vercel.app/) 
+- [Back End API](https://afternoon-fjord-27064.herokuapp.com/)
 
 ## Built With
 
