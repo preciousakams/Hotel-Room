@@ -2,7 +2,9 @@
 
 ## SuiteUp
 
-> Hotel Room is a project that simulates a hotel room booking system. It allows users to book a room for one night. It also allows users to see the list of all booked rooms on that day and see a list of rooms that are not booked yet. You can check the source code for frontend [here](https://github.com/felixodette/hotel-room-frontend).
+> Hotel Room is a simulation of a hotel room reservation system.
+It enables users to make room reservations.
+It also allows users to see all of their reservations in a list format, delete a room only if it is empty, and all visitors can see unreserved rooms. You can check the source code for frontend [here](https://github.com/felixodette/hotel-room-frontend).
 
 
 
